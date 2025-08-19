@@ -1,0 +1,40 @@
+# Outline 
+# 1
+#     App 
+#     |
+#     |->Http
+#     |    |-> Controller/API/TodoController.php
+#     |    |-> Request/TodoFormRequest.php
+#     |
+#     |-> Interfaces 
+#     |    |
+#     |    |-> ExampleInterface.php
+#     |
+#     |-> Repositories
+#     |    |
+#     |    |-> ExampleRepository.php
+#     |
+#     |-> Providers 
+#     |    |->AppServiceProvider.php
+#     |
+#     |-> Services
+#     |    |-> todoService (handle busnis logic)
+
+
+
+
+# 2 register in Providers/AppServiceProvider.php 
+#     ex
+#         public function register(): void
+#         {
+#             $this->app->bind(TodoInterface::class, TodoRepository::class);
+#         }
+
+# 3 create Services/todoService for manage Repositories and work with TodoController
+#     php artisan make:class Services/todoService
+
+# 4 make request (TodoFormRequier) for validator
+#     php artisan make:request TodoFormRequest
+
+#     ex
+#       public function store(TodoFormRequest $request)
